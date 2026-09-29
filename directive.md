@@ -104,7 +104,7 @@ To prevent users from bypassing basic IP rate-limiting via VPNs or proxy network
 ## 6. Results & Handoff Appendix
 
 ### Required Artifact Links
-* **Operating Prototype (Google Sheets):** [Insert Your Public Google Sheets URL Here]
+* **Operating Prototype (Google Sheets):** [https://docs.google.com/spreadsheets/d/1m84UVMdMq9HFF835HuC5D1iE6bDmo-kT/edit]
 * **Loom Walkthrough Video (< 5 min):** [Insert Your Public Loom URL Here]
 
 ### Verification & Reproduction Steps
