@@ -62,6 +62,13 @@ Deploy an operating loop that converts waitlist users into active reviewers on a
 #### Task 5: Status Dashboard & Feedback UI (P2)
 * **Description:** User-facing status component.
 * **Acceptance Criteria:** Displays qualification status to user within 5 seconds. Displays actionable error message if flagged (e.g., "Review must exceed 150 characters").
+  
+### Advanced Anti-Sybil Architecture (v2 Roadmap)
+To prevent users from bypassing basic IP rate-limiting via VPNs or proxy networks:
+1. **Persistent Device Fingerprinting:** Deploy client-side fingerprinting (Canvas/WebGL hash + LocalStorage tokens) to uniquely identify devices across changing IP addresses.
+2. **Semantic Plagiarism & Entropy Scoring:** Run string-similarity checks (Levenshtein distance) against historical submissions to flag duplicate or AI-generated copy-paste review text (>85% similarity threshold).
+3. **Behavioral Telemetry & Velocity:** Track `time_on_page` and paste events; forms submitted in <8 seconds or initiated via headless browser environments are tagged as `EXCLUDED_BOT_VELOCITY`.
+
 
 ---
 
@@ -111,7 +118,9 @@ Deploy an operating loop that converts waitlist users into active reviewers on a
 
 ### AI Collaboration & Specification Audit Log
 * **Initial AI Output:** AI initially generated KPI formulas using raw wallet connections (`C2:C11`) as the main conversion numerator.
-* **Correction Applied:** Corrected the conversion rate formula to `=COUNTIF(G2:G11, "QUALIFIED") / COUNTA(A2:A11)`. This ensures non-wallet qualified users are counted and vanity wallet connects are excluded.
+* **Correction Applied:**
+1. Corrected the conversion rate formula to `=COUNTIF(G2:G11, "QUALIFIED") / COUNTA(A2:A11)`. This ensures non-wallet qualified users are counted and vanity wallet connects are excluded.
+2. Recognized that basic IP and character filters are easily bypassed by VPN hopping and script farms. Suggested and authored an advanced, multi-layer Anti-Sybil specification incorporating persistent client-side device fingerprinting (Canvas/LocalStorage tokens), semantic similarity/plagiarism checks, and interaction velocity telemetry.
 * **Specification Refinement:** Refined task backlog acceptance criteria to handle testnet transaction drop-outs without degrading off-chain review metrics.
 
 ### Limitations
