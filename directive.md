@@ -29,7 +29,7 @@ Deploy an operating loop that converts waitlist users into active reviewers on a
 * **Non-Wallet Access:** Wallet connection is strictly **optional**. Non-wallet users retain 100% eligibility for review qualification.
 * **Anti-Bot / Exclusion Logic:**
   * Submissions < 150 characters marked `EXCLUDED_BOT`.
-  * Duplicate IP / Fingerprint within 24h marked `EXCLUDED_DUPLICATE`.
+  * Duplicate IP / Fingerprint within 24h marked `EXCLUDED_DUPLICATE_IP`.
 * **Acknowledgement Rules:** Testnet minting is available **only after** review qualification. Acknowledgements grant no financial rights or proof of reserves.
 
 ---
@@ -49,7 +49,7 @@ Deploy an operating loop that converts waitlist users into active reviewers on a
 
 #### Task 2: Automated Anti-Spam & Qualification Service (P0)
 * **Description:** Service evaluating submission rules prior to database commit.
-* **Acceptance Criteria:** Rejects or flags entries <150 chars as `EXCLUDED_BOT`. Flags matching IP/Fingerprint within 24h as `EXCLUDED_DUPLICATE`. Sets valid items to `QUALIFIED`.
+* **Acceptance Criteria:** Rejects or flags entries <150 chars as `EXCLUDED_BOT`. Flags matching IP/Fingerprint within 24h as `EXCLUDED_DUPLICATE_IP`. Sets valid items to `QUALIFIED`.
 
 #### Task 3: Dual-Metric Conversion Analytics Pipeline (P1)
 * **Description:** Metric logging separating vanity metrics from true conversion.
@@ -112,9 +112,9 @@ To prevent users from bypassing basic IP rate-limiting via VPNs or proxy network
 2. Observe Rows 2–11 containing 10 synthetic participant records.
 3. Verify edge cases:
    * **Row 3 (`USR_002`):** Non-wallet user who successfully converts to `QUALIFIED`.
-   * **Row 5 (`USR_004`):** Duplicate IP flagged as `EXCLUDED_DUPLICATE`.
+   * **Row 5 (`USR_004`):** Duplicate IP flagged as `EXCLUDED_DUPLICATE_IP`.
    * **Row 10 (`USR_009`):** Qualified user experiencing a `FAILED` testnet minting edge case without invalidating their qualification status.
-4. Verify summary formulas in cells `K2:K6` proving separation of `Raw Wallet Connections` (7) vs. `Qualified Conversions` (5).
+4. Verify summary formulas in cells `K2:K6` proving separation of `Raw Wallet Connections` (7) vs.  `Qualified Conversions⁠` (7) and a 70% Qualified Conversion Rate.
 
 ### AI Collaboration & Specification Audit Log
 * **Initial AI Output:** AI initially generated KPI formulas using raw wallet connections (`C2:C11`) as the main conversion numerator.
