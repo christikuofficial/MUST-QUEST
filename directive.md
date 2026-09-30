@@ -105,8 +105,7 @@ To prevent users from bypassing basic IP rate-limiting via VPNs or proxy network
 
 ### Required Artifact Links
 * **Operating Prototype (Google Sheets):** [https://docs.google.com/spreadsheets/d/1m84UVMdMq9HFF835HuC5D1iE6bDmo-kT/edit]
-* **Loom Walkthrough Video (< 5 min):** [Insert Your Public Loom URL Here]
-
+* **Loom Walkthrough Video (< 5 min):** [https://www.loom.com/share/3a42f338469349b7ad73e68db2e9fb99]
 ### Verification & Reproduction Steps
 1. Open the Google Sheets prototype link.
 2. Observe Rows 2–11 containing 10 synthetic participant records.
